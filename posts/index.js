@@ -24,14 +24,22 @@ app.post('/posts', async (req, res) => {
     id, title
   }
 
- await axios.post('http://localhost:4005/events',{
+ await axios.post('http://event-bus-srv:4005/events',{
     type:'PostCreated',
     data: {
       id, title
     }
  })
 
-  res.status(201).send(posts[id])
+// THIS WAS FOR PRE-CLUSTER COMMUNICATION!
+//  await axios.post('http://localhost:4005/events',{
+//     type:'PostCreated',
+//     data: {
+//       id, title
+//     }
+//  })
+
+  res.status(202).send(posts[id])
 })
 // bla bla
 

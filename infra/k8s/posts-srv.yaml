@@ -1,13 +1,14 @@
+# MAKE IT AVAILABLE EXTERNALLY!
 apiVersion: v1
 kind: Service
 metadata:
   name: posts-srv
 spec:
   type: NodePort
-  selector: # which pod to expose
+  selector:
     app: posts
   ports:
     - name: posts
       protocol: TCP
-      port: 4000 #node receives on that port (?)
-      targetPort: 4000 # actual port of the posts service
+      port: 4000
+      targetPort: 4000
